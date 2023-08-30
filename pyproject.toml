@@ -8,6 +8,11 @@ packages = [{include = "stable_diffusion_webui"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+transformers = "^4.32.1"
+diffusers = "^0.20.1"
+accelerate = "^0.22.0"
+safetensors = "^0.3.3"
+xformers = "^0.0.21"
 
 
 [build-system]
