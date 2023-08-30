@@ -1,35 +1,15 @@
-[tool.ruff]
+[tool.poetry]
+name = "stable-diffusion-webui"
+version = "0.1.0"
+description = ""
+authors = ["ngullotta <nikolaus.gullotta@protonmail.com>"]
+readme = "README.md"
+packages = [{include = "stable_diffusion_webui"}]
 
-target-version = "py39"
+[tool.poetry.dependencies]
+python = "^3.11"
 
-extend-select = [
-  "B",
-  "C",
-  "I",
-  "W",
-]
 
-exclude = [
-	"extensions",
-	"extensions-disabled",
-]
-
-ignore = [
-	"E501", # Line too long
-	"E731", # Do not assign a `lambda` expression, use a `def`
-	
-	"I001", # Import block is un-sorted or un-formatted
-	"C901", # Function is too complex
-	"C408", # Rewrite as a literal
-	"W605", # invalid escape sequence, messes with some docstrings
-]
-
-[tool.ruff.per-file-ignores]
-"webui.py" = ["E402"]  # Module level import not at top of file
-
-[tool.ruff.flake8-bugbear]
-# Allow default arguments like, e.g., `data: List[str] = fastapi.Query(None)`.
-extend-immutable-calls = ["fastapi.Depends", "fastapi.security.HTTPBasic"]
-
-[tool.pytest.ini_options]
-base_url = "http://127.0.0.1:7860"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
